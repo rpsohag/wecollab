@@ -1,0 +1,17 @@
+{
+    "name": "Commerciale",
+    "alias": "commerciale",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Commerciale\\Providers\\CommercialeServiceProvider",
+        "Modules\\Commerciale\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

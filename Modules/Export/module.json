@@ -1,0 +1,17 @@
+{
+    "name": "Export",
+    "alias": "export",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Export\\Providers\\ExportServiceProvider",
+        "Modules\\Export\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

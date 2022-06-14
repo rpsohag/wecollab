@@ -1,0 +1,21 @@
+{
+    "Assistenza": true,
+    "Core": true,
+    "Dashboard": true,
+    "Export": true,
+    "Media": true,
+    "Menu": true,
+    "Page": true,
+    "Profile": true,
+    "Setting": true,
+    "Tag": true,
+    "Tasklist": true,
+    "Translation": true,
+    "User": true,
+    "Wecore": true,
+    "Workshop": true,
+    "Amministrazione": true,
+    "Commerciale": true,
+    "Statistiche": true,
+    "Wecloud": true
+}

@@ -1,0 +1,17 @@
+{
+    "name": "Wecloud",
+    "alias": "wecloud",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Wecloud\\Providers\\WecloudServiceProvider",
+        "Modules\\Wecloud\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

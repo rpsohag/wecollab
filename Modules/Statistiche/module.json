@@ -1,0 +1,17 @@
+{
+    "name": "Statistiche",
+    "alias": "statistiche",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 1,
+    "providers": [
+        "Modules\\Statistiche\\Providers\\StatisticheServiceProvider",
+        "Modules\\Statistiche\\Providers\\RouteServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        
+    ],
+    "requires": []
+}

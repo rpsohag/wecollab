@@ -1,0 +1,70 @@
+@page { margin: 100px 50px; }
+
+* {
+    color: #607a8a;
+    font-family: 'Titillium Web', sans-serif !important;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 0px;
+    z-index: 3;
+}
+header { position: fixed; top: -50px; left: 0; right: 0; height: auto; }
+footer { position: fixed; bottom: 0; left: 0; right: 0; }
+main {
+    margin-top: 20px;
+}
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+    padding: 0;
+}
+a {
+    color: #607a8a;
+}
+hr {
+    border: 1px solid;
+}
+table td {
+    padding: 0 10px !important;
+    margin: 0 !important;
+}
+footer small {
+    font-size: 0.9em !important;
+    line-height: 9px !important;
+}
+
+.page-break { page-break-after: always; }
+.page-break:last-child { page-break-after: never; }
+.bg-grey {
+    background-color: #607a8a;
+}
+.bg-orange {
+    background-color: #ff851b;
+}
+.no-padding {
+    padding: 0;
+}
+.padding {
+    padding: 10px;
+}
+.text-white {
+    color: #fff;
+}
+.strong {
+    font-weight: bold;
+    line-height: 19.7px;
+}
+.border {
+    border: 1px solid;
+}
+.border-bottom-dotted {
+    border-bottom: 1px dotted;
+}
+.bg-footer {
+    position: absolute;
+    bottom: 0;
+    left: 8%;
+    z-index: 1;
+}
+.bg-footer img {
+    height: 300px;
+}

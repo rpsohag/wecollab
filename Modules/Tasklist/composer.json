@@ -1,0 +1,34 @@
+{
+    "name": "wecom/tasklist",
+    "description": "",
+    "type": "asgard-module",
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0.0",
+        "composer/installers": "~1.0",
+        "idavoll/core-module": "~3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "3.5.*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\Tasklist\\": ".",
+            "Modules\\": "Modules/"
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Pasquale Cappa Spina",
+            "email": "p.cappaspina@we-com.it"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Modules\\Tasklist\\": ""
+        }
+    }
+}

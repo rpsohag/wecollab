@@ -1,0 +1,174 @@
+/******************/
+/* DOCUMENTAZIONE */
+/******************/
+
+// Documentazione CMS
+https://asgardcms.com/docs/v3/getting-started/installation
+
+// Documentazione Laravel
+https://laravel.com/docs/5.5
+
+// Documentazione Template
+https://adminlte.io/themes/AdminLTE/
+
+// Documentazione Filters
+https://github.com/Tucker-Eric/EloquentFilter
+
+
+
+/*******/
+/* CMD */
+/*******/
+// Crea modulo (alla richiesta del nome usare la sintassi "Modules/<Module>")
+php7.1 artisan asgard:module:scaffold
+NB: dopo aver creato il modulo bisogna dare i permessi al nuovo folder
+NB: rinominare gli Entities
+NB: rinominare le cartelle con le s
+
+// Creare nuovo sottomodulo (entity) (AVVISO: nome dei sottomoduli, entity, sempre al singolare e prima lettera maiuscola)
+php7.1 artisan asgard:entity:scaffold <entity> <module>
+
+// Creare nuova tabella del nuovo modulo
+php7.1 artisan module:migrate <module>
+
+
+
+/***************/
+/* INFO E PATH */
+/***************/
+// Model
+Modules/<module>/Entities/<model>.php
+
+// Controller
+Modules/<module>/Http/Controllers/Admin/<controller>.php
+
+// View
+Modules/<module>/Resources/views/admin/<folder>/<view>.blade.php
+
+// Helpers
+Modules/Wecore/helpers.php
+
+// Input Form
+Modules/Wecore/macros.php
+
+// Master Blade
+Themes/Admin/views/layouts/master.blade.php
+// Dashboard Blade
+resources/view/asgard/dashboard/admin/dashboard.blade.php
+// Dettagli Dashboard Blade
+resources/view/asgard/dashboard/admin/partials/widgets.blade.php
+
+// CSS WECOM
+public/css/wecom.css
+
+
+
+/******************************/
+/* INSTALLAZIONE NUOVI PLUGIN */
+/******************************/
+Usare il comando:
+php7.1 composer.phar require <NOME_PLUGIN> 
+
+
+
+/***************************/
+/* PULIZIE E AGGIORNAMENTI */
+/***************************/
+N.B: NON LANCIARE MAI i comandi "composer install" o "composer update" perché si corrompe il vendor
+N.B: OGNI VOLTA CHE SI FA UN RILASCIO Ricordarsi di escludere dal GIT il file "composer.lock"
+
+// Aggiornare i riferimenti alle classi nel progetto
+// NB: lanciare solo se si installano nuovi plugin
+composer dump-autoload
+
+// 0) Ottimizza il loader delle classi
+php artisan optimize
+
+// 1) Pulisce l'application cache
+php artisan cache:clear
+
+// 2) Pulisce e aggiorna la cache delle routes
+php artisan route:cache
+
+// 3) Pulisce e aggiorna la cache delle routes
+php artisan route:clear
+
+// 4) Pulisce le view compilate
+php artisan view:clear
+
+// 5) Pulire la cache e se si rompe 
+// Eliminare la cartella con il comando seguente 
+cd bootstrap/cache/
+rm -rf *.php
+
+
+
+/********************************************/
+/*PERMESSI DI VISUALIZZAZIONE MENU (SIDEBAR)*/
+/********************************************/
+{{Modulo}}/Events/Handlers
+cambiare :
+$item->authorize(
+                     /* append */
+                );
+in append ci metto l' index del modulo che voglio esempio( $this->auth->hasAccess('statistiche.interrogazioni.index') )
+
+
+
+/**************/
+/* TRADUZIONI */
+/**************/
+N.B: Il pulsante "Clear translation cache" non va utilizzato.
+
+Creare solo file traduzioni in inglese
+Il file "core" si trova: Modules\Translation\Resources\lang\core\en\core.php
+Il file "cores" si trova: Modules\Wecore\Resources\lang\en\cores.php
+Il file "anziani" si trova: Modules\Ricerche\Resources\lang\en\anziani.php
+Il file "dashboard" si trova: Modules\Translation\Resources\lang\dashboard\en\dashboard.php
+Il file "ALTRE TRADUZIONI" si trova: Modules\Wecore\Resources\lang\en\records.php
+I file con le traduzioni dei messaggi di errore delle validazioni si trova: resources\lang\en\validation.php
+
+Una volta modificato il codice e i file con le traduzioni su DEMO, copiare le tabelle "translation__translations" e "translation__translation_translations" da DEMO a PRODUZIONE
+Accedere sul gestionale in produzione, aprire la maschera delle traduzioni e cliccare su "Aggiorna".
+
+
+
+/*************************/
+/* CHIAVI ESTERNE DOPPIE */
+/*************************/
+Plugin Compoships
+1) includere la libreria: "use Awobaz\Compoships\Compoships;"
+2) creare la relazione:
+    public function relazione()
+    {
+        return $this->hasOne/hasMany(tabRelazionata::class, ['key_remota_1','key_remota_2'], ['key_locale_1','key_locale_2']);
+    }
+
+
+
+/*************************************/
+/* PROCEDURA PER AGGIUNGERE CSS O JS */
+/*************************************/
+1) Andare su public\themes\admin\vendor
+2) Creare folder in cui copiare file css e/o js
+3) Aggiungere il nome dei file css e/o js da utilizzare nel progetto in config\asgard\core\core.php
+
+
+
+/**********************************/
+/* TEST COLLECTION ELOQUENT VUOTA */
+/**********************************/
+Usare uno dei seguenti metodi (equivalenti tra loro)
+if ($result->first()) { }
+if (!$result->isEmpty()) { }
+if ($result->count()) { }
+if (count($result)) { }
+if ($result->any()) { }
+
+
+
+/*********************************************/
+/*CONTROLLI & INFORMAZIONI UTILI SUL PROGETTO*/
+/*********************************************/
+PER INTERCETTARE I MORTI USARE : an_flag_decesso = 1 ;
+PER FARE RIFERIMENTO AI PERIODI DELLO STATO VEDERE IL "an_stato_dtmod" sull' Anagrafica

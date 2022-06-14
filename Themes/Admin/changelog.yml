@@ -1,0 +1,5 @@
+url: https://adminlte.io/themes/AdminLTE/
+versions:
+    "1.0.0":
+        added:
+            - Creato il template da AdminLTE
